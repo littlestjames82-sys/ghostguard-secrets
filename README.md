@@ -12,7 +12,7 @@ The Secrets Broker removes the value from the agent's world entirely:
 - The gateway record is written **before** execution, per GhostGuard's record-first contract, and shows the secret exactly the way the trail already treats secrets: **name, type, and length — never the value**. (Length is filled in only on the execute path, after broker-side resolution; on a refusal it stays `null`, because the broker honestly never learned it.)
 - Injection is last-moment and one-way: the executor receives values in a separate `secrets` map keyed by slot, apart from the agent's payload. The broker clears its own map when the call returns, and **scrubs** any resolved value out of executor results and error messages that pass back through it — a leaky executor that throws or echoes the key gets `[redacted]`, not a leak.
 
-By **Ghost Developer Studio**. Standalone prototype; imports the GhostGuard engine from its built `dist/` (`../ghostguard/dist`), zero runtime dependencies of its own, nothing published.
+By **Ghost Developer Studio**. Standalone prototype; imports the GhostGuard engine from the published `ghostguard` package — its only runtime dependency.
 
 ## Flow
 
@@ -54,7 +54,7 @@ One ordering note: on the execute path the broker resolves *before* writing the 
 ## Usage
 
 ```js
-import { createJsonlRecorder } from "../../ghostguard/dist/index.js";
+import { createJsonlRecorder } from "ghostguard";
 import {
   createSecretsBroker,
   createFileSecretSource,
@@ -113,17 +113,13 @@ Prototype, built Oct 10, 2026 and public at v0.1.0. All test fixtures use obviou
 
 ## Repository layout note
 
-This add-on imports the GhostGuard core engine from a **sibling checkout**:
-`../../ghostguard/dist/index.js` (its source and/or tests do; nothing in the
-core is modified). To run it, clone the core next to this repo so both folders
-share a parent directory:
+This add-on imports the GhostGuard core engine from the **published
+`ghostguard` package** (`"ghostguard": "^0.1.0"` in `package.json`; nothing
+in the core is modified). To run it, clone this repo and install:
 
 ```sh
-git clone https://github.com/littlestjames82-sys/ghostguard
 git clone https://github.com/littlestjames82-sys/ghostguard-secrets
-# build the core once so dist/ exists:
-cd ghostguard && npm run build && cd ..
-cd ghostguard-secrets && npm test
+cd ghostguard-secrets && npm install && npm test
 ```
 
 Part of the GhostGuard family by **Ghost Developer Studio**.

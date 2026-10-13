@@ -1,5 +1,8 @@
 {
   "description": "GhostGuard Secrets Broker \u2014 just-in-time secret injection for governed agent actions: the agent holds only a secret reference, the broker resolves and injects the value at execution, only after an allow verdict. By Ghost Developer Studio.",
+  "dependencies": {
+    "ghostguard": "^0.1.0"
+  },
   "engines": {
     "node": ">=18.0.0"
   },

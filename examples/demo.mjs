@@ -17,7 +17,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { readFileSync } from "node:fs";
 
-import { createJsonlRecorder } from "../../ghostguard/dist/index.js";
+import { createJsonlRecorder } from "ghostguard";
 import { createSecretsBroker } from "../src/broker.mjs";
 import { createMapSecretSource } from "../src/sources.mjs";
 import { createFakeHttpExecutor } from "../src/fake-http-executor.mjs";

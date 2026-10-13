@@ -32,16 +32,16 @@
  *      value out of executor results and error messages that pass
  *      back through it.
  *
- * GhostGuard itself is imported from its built dist in
- * ../ghostguard/dist — this package has zero runtime dependencies
- * of its own and does not modify the core package.
+ * GhostGuard itself is imported from the published ghostguard
+ * package — this package's only runtime dependency — and the core
+ * package is never modified.
  */
 
 import {
   compilePolicy,
   evaluatePolicy,
   gatewayRecordFromDecision,
-} from "../../ghostguard/dist/index.js";
+} from "ghostguard";
 
 const REDACTED = "[redacted]";
 

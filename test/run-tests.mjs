@@ -29,7 +29,7 @@ import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
-import { createJsonlRecorder, readGatewayRecords } from "../../ghostguard/dist/index.js";
+import { createJsonlRecorder, readGatewayRecords } from "ghostguard";
 import { createSecretsBroker } from "../src/broker.mjs";
 import {
   createMapSecretSource,
