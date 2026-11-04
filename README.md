@@ -1,4 +1,5 @@
 # GhostGuard Secrets Broker
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![Release](https://img.shields.io/github/v/release/littlestjames82-sys/ghostguard-secrets)](https://github.com/littlestjames82-sys/ghostguard-secrets/releases)
 
 **Just-in-time secret injection for governed agent actions — the agent can't leak what it never had.**
 
